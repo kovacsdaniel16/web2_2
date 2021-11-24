@@ -1,6 +1,6 @@
 <?php //Csatlakozás az adatbázishoz
     define('HOST', 'localhost');
-    define('DATABASE', 'web2');
+    define('DATABASE', 'web3');
     define('USER', 'root');
     define('PASSWORD', '');
     
