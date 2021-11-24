@@ -1,0 +1,25 @@
+#informaciosdiv {
+    width: 400px;
+  }
+  #teruletinfo {
+    float: right;
+    border: 1px solid black;
+    width: 190px;
+    height: 100px;
+  }
+  .cimke{
+    display: inline-block;
+    width: 60px;
+    text-align: right;
+  }
+  span {
+    margin: 3px 5px;
+  }
+  label {
+    display: inline-block;
+    width: 70px;
+    text-align: right;
+  }
+  select {
+    width: 115px;
+  }

@@ -2,10 +2,10 @@
 
 class Elerhetoseg_Controller
 {
-	public $baseName = 'elerhetoseg';  //meghatározni, hogy melyik oldalon vagyunk
-	public function main(array $vars) // a router által továbbított paramétereket kapja
+	public $baseName = 'elerhetoseg_alapinfok';  //meghatï¿½rozni, hogy melyik oldalon vagyunk
+	public function main(array $vars) // a router ï¿½ltal tovï¿½bbï¿½tott paramï¿½tereket kapja
 	{
-		//betöltjük a nézetet
+		//betï¿½ltjï¿½k a nï¿½zetet
 		$view = new View_Loader($this->baseName."_main");
 	}
 }
