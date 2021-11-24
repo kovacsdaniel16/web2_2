@@ -8,7 +8,21 @@
     </head>
     <body>
         <header>
-            <div id="user"><em><?= $_SESSION['userlastname']." ".$_SESSION['userfirstname'] ?></em></div>
+            <div id="user"><em><?php
+            switch ($_SESSION['userlevel']) {
+                case "__1":
+                    echo "Admin";
+                    break;
+
+                case "_1_":
+                    echo "Regisztrált látogató";
+                    break;
+                
+                default:
+                    echo "Látogató";
+                    
+            }
+            ?></em></div>
             <h1 class="header">Mindentudás Egyeteme</h1>
             <img src="./images/mte.jpg" alt="logo"/>
         </header>
