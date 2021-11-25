@@ -1,2 +1,2 @@
-$("#magyarazat em").attr("title", "kettopontnulla");
-    
+
+$("#magyarazat em").attr("title", "kettőpontnulla");

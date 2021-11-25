@@ -1,38 +1,39 @@
-function terulet() { //orszagok
+function eloadok() {
     $.post(
-        "./models/kereso_model.php",
-        {"tp" : "terulet"}, //"op":"orszag"
+        "felsofoku.php",
+        {"op" : "eloado"},
         function(data) {
-            $("<option>").val("0").text("Válasszon ...").appendTo("#teruletselect");
+
+            $("<option>").val("0").text("Válasszon ...").appendTo("#nevselect");
             var lista = data.lista;
             for(i=0; i<lista.length; i++)
-                $("<option>").val(lista[i].id).text(lista[i].nev).appendTo("#teruletselect");
+                $("<option>").val(lista[i].id).text(lista[i].nev).appendTo("#nevselect");
         },
         "json"                                                    
     );
 };
 
-function nev() { //varosok
-    $("#varosselect").html("");
-    $("#intezmenyselect").html("");
+function temakorok() { //varosok
+    $("#teruletselect").html("");
+    $("#eloadasselect").html("");
     $(".adat").html("");
-    var orszagid = $("#orszagselect").val();
-    if (orszagid != 0) {
+    var id = $("#nevselect").val();
+    if (id != 0) {
         $.post(
             "felsofoku.php",
-            {"op" : "varos", "id" : orszagid},
+            {"op" : "temakor", "id" : id},
             function(data) {
-                $("#varosselect").html('<option value="0">Válasszon ...</option>');
+                $("#teruletselect").html('<option value="0">Válasszon ...</option>');
                 var lista = data.lista;
                 for(i=0; i<lista.length; i++)
-                    $("#varosselect").append('<option value="'+lista[i].id+'">'+lista[i].nev+'</option>');
+                    $("#teruletselect").append('<option value="'+lista[i].id+'">'+lista[i].terulet+'</option>');
             },
             "json"                                                    
         );
     }
 }
 
-function eloadas() { //eloadas
+function intezmenyek() {
     $("#intezmenyselect").html("");
     $(".adat").html("");
     var varosid = $("#varosselect").val();
@@ -70,10 +71,10 @@ function intezmeny() {
 }
 
 $(document).ready(function() {
-   orszagok();
+   eloadok();
    
-   $("#orszagselect").change(varosok);
-   $("#varosselect").change(intezmenyek);
+   $("#nevselect").change(eloadok);
+   $("#teruletselect").change(temakorok);
    $("#intezmenyselect").change(intezmeny);
    
    $(".adat").hover(function() {

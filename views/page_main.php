@@ -3,14 +3,13 @@
     <head>
         <meta charset="utf-8">
         <title>Mindentudás Egyeteme</title>
-        <script type = "text/javascript" src="/js/jquery-2.1.0.min.js"></script>
-        <script type = "text/javascript" src="<?php echo SITE_ROOT?>js/mte.js"></script>
-        <script type = "text/javascript" src="/js/test.js"></script>
+
+        <script type = "text/javascript" src="<?php echo SITE_ROOT?>js/jquery-2.1.0.min.js"></script>
+        <script type = "text/javascript" src="<?php echo SITE_ROOT?>js/felsofoku.js"></script>
 
 
-        
-        <link rel="stylesheet" type="text/css" href="<?php echo SITE_ROOT?>css/main_style.css">
-        <?php if($viewData['style']) echo '<link rel="stylesheet" type="text/css" href="'.$viewData['style'].'">'; ?>
+        <link rel="stylesheet" type="text/css" href="<?php echo SITE_ROOT?>css/main_style.css"><!--alapértelmezett formázás-->
+        <?php if($viewData['style']) echo '<link rel="stylesheet" type="text/css" href="'.$viewData['style'].'">'; ?><!--betöltött oldalak formázása-->
     </head>
     <body>
         <header>
@@ -38,6 +37,7 @@
         <aside>   <!--oldalsó rész-->
                 <br>
         </aside>
+        
         <div class="render">
         <section>  <!--render-->
 
@@ -45,6 +45,9 @@
 
         </section>
         </div>
+
+        <script type = "text/javascript" src="<?php echo SITE_ROOT?>js/test.js"></script>
+
         <footer>&copy; Kovács Dániel <?= date("Y") ?></footer>
     </body>
 </html>
