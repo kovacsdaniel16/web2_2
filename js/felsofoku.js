@@ -1,81 +1,84 @@
-function eloadok() {
+function eloadas() {
     $.post(
         "felsofoku.php",
-        {"op" : "eloado"},
+        {"op" : "eloadas"},
         function(data) {
 
-            $("<option>").val("0").text("Válasszon ...").appendTo("#nevselect");
+            $("<option>").val("0").text("Válasszon ...").appendTo("#eloadasselect");
             var lista = data.lista;
             for(i=0; i<lista.length; i++)
-                $("<option>").val(lista[i].id).text(lista[i].nev).appendTo("#nevselect");
+                $("<option>").val(lista[i].id).text(lista[i].cim).appendTo("#eloadasselect");
         },
         "json"                                                    
     );
 };
 
-function temakorok() { //varosok
-    $("#teruletselect").html("");
-    $("#eloadasselect").html("");
-    $(".adat").html("");
-    var id = $("#nevselect").val();
-    if (id != 0) {
+function tudos() { //
+    $("#tudosselect").html(""); //lenullázza a korábbi kereséséeket
+    $("#dateselect").html(""); // szintén
+    $(".adat").html(""); //a bekeretezett részt nullázza le
+
+    var eloadasid = $("#eloadasselect").val(); //megállapítjuk, h a feljhasználó mely előadót választotta (value) hogy? a val() metódussal
+    if (eloadasid != 0) { //ha value nem nulla, akkor indulhat a keresés
         $.post(
             "felsofoku.php",
-            {"op" : "temakor", "id" : id},
+            {"op" : "temakor", "id" : eloadasid}, //elküldünk egy id kulcsot is, mely értéke, az előző kereses id-je (value)
             function(data) {
-                $("#teruletselect").html('<option value="0">Válasszon ...</option>');
+                $("#tudosselect").html('<option value="0">Válasszon ...</option>');
+                var lista = data.lista;
+
+                for(i=0; i<lista.length; i++)
+                    $("#tudosselect").append('<option value="'+lista[i].id+'">'+lista[i].nev+'</option>');
+            },
+            "json"                                                    
+        );
+    }
+}
+
+function datumok() {
+    $("dateselect").html(""); //alapértelmezettre állítom
+    $(".adat").html("");
+    var tudosid = $("#tudosselect").val();
+    if (tudosid != 0) {
+        $.post(
+            "felsofoku.php",
+            {"op" : "datum", "id" : tudosid},
+            function(data) {
+                $("#dateselect").html('<option value="0">Válasszon ...</option>');
                 var lista = data.lista;
                 for(i=0; i<lista.length; i++)
-                    $("#teruletselect").append('<option value="'+lista[i].id+'">'+lista[i].terulet+'</option>');
+                    $("#dateselect").append('<option value="'+lista[i].id+'">'+lista[i].date+'</option>');
             },
             "json"                                                    
         );
     }
 }
 
-function intezmenyek() {
-    $("#intezmenyselect").html("");
+function datum() {
     $(".adat").html("");
-    var varosid = $("#varosselect").val();
-    if (varosid != 0) {
+    var dateid = $("#dateselect").val();
+    if (dateid != 0) {
         $.post(
             "felsofoku.php",
-            {"op" : "intezmeny", "id" : varosid},
+            {"op" : "info", "id" : dateid},
             function(data) {
-                $("#intezmenyselect").html('<option value="0">Válasszon ...</option>');
-                var lista = data.lista;
-                for(i=0; i<lista.length; i++)
-                    $("#intezmenyselect").append('<option value="'+lista[i].id+'">'+lista[i].nev+'</option>');
+                $("#eloado").text(data.nev);
+                $("#eloadas").text(data.cim);
+                $("#temakor").text(data.tel);
+                $("#datum").text(data.email);
             },
             "json"                                                    
         );
     }
 }
 
-function intezmeny() {
-    $(".adat").html("");
-    var intezmenyid = $("#intezmenyselect").val();
-    if (intezmenyid != 0) {
-        $.post(
-            "felsofoku.php",
-            {"op" : "info", "id" : intezmenyid},
-            function(data) {
-                $("#nev").text(data.nev);
-                $("#cim").text(data.cim);
-                $("#tel").text(data.tel);
-                $("#mail").text(data.email);
-            },
-            "json"                                                    
-        );
-    }
-}
 
-$(document).ready(function() {
-   eloadok();
+$(document).ready(function() { //őket futtatom le, ha minden ki van töltve
+   eloadas();
    
-   $("#nevselect").change(eloadok);
-   $("#teruletselect").change(temakorok);
-   $("#intezmenyselect").change(intezmeny);
+   $("#eloadasselect").change(tudos);
+   $("#tudosselect").change(datumok);
+   $("#dateselect").change(datum);
    
    $(".adat").hover(function() {
         $(this).css({"color" : "white", "background-color" : "black"});

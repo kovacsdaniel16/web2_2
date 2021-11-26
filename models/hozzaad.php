@@ -18,6 +18,8 @@ try {
 					$eredmeny .= "</tr>";
 				}
 				$eredmeny .= "</table>";
+				
+				$_SESSION['eredmeny']=$eredmeny;
 			break;
 		case "POST":
 				$sql = "insert into tudos values (0, :kn, :tn)";

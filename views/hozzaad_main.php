@@ -39,9 +39,10 @@ if(isset($_POST['id']))
       curl_close($ch);
   }
 
-  /*elseif ($_POST['id']<count($_SESSION['eredmeny'])) {
-    return;  
-    }*/
+  //elseif ($_POST['id']>count($_SESSION['eredmeny'])) {
+    
+    
+   // }
   
   // Ha van id, amely >=1, de nem adtak meg legalább az egyik adatot
   elseif($_POST['id'] >= 1)
@@ -81,5 +82,6 @@ curl_close($ch);
     Kutató neve: <input type="text" name="kn" maxlength="45"> Témaköre: <input type="text" name="tn" maxlength="45"><br><br>
     <input type="submit" value = "Küldés">
     </form>
+   
 </body>
 

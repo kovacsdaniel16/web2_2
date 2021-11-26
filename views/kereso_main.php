@@ -8,14 +8,14 @@
         <span class="cimke">Dátum:</span><span id="datum" class="adat"></span><br>
       </div>
 
-      <label for= 'nevcimke'>Előadó:</label>
-      <select id = 'nevselect'></select>
+      <label for= 'nevcimke'>Előadás:</label>
+      <select id = 'eloadasselect'></select>
       <br><br>
       <label for = 'teruletcimke'>Terület:</label>
-      <select id = 'teruletselect'></select>
+      <select id = 'tudosselect'></select>
       <br><br>
-      <label for = 'teruletcimke'>Előadás:</label>
-      <select id = 'eloadasselect'></select>
+      <label for = 'teruletcimke'>Dátum:</label>
+      <select id = 'dateselect'></select>
       
 
     </div>
