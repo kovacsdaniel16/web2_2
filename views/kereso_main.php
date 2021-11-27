@@ -2,10 +2,10 @@
 
     <div id = 'informaciosdiv'>
       <div id = 'nevinfo'>
-        <span class="cimke">Előadó:</span><span id="eloado" class="adat"></span><br>
-        <span class="cimke">Előadás:</span><span id="eloadas" class="adat"></span><br>
-        <span class="cimke">Témakör:</span><span id="temakor" class="adat"></span><br>
-        <span class="cimke">Dátum:</span><span id="datum" class="adat"></span><br>
+        <span class="cimke">Előadó:</span><span id="ea" class="adat"></span><br>
+        <span class="cimke">Előadás:</span><span id="eas" class="adat"></span><br>
+        <span class="cimke">Témakör:</span><span id="tk" class="adat"></span><br>
+        <span class="cimke">Dátum:</span><span id="dt" class="adat"></span><br>
       </div>
 
       <label for= 'nevcimke'>Előadás:</label>

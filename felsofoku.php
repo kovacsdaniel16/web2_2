@@ -56,10 +56,10 @@
         $dbh = new PDO('mysql:host=localhost;dbname=web3', 'root', '',
                       array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION));
         $dbh->query('SET NAMES utf8 COLLATE utf8_hungarian_ci');
-        $stmt = $dbh->prepare("SELECT nev, cim, terulet, ido FROM eloadas INNER JOIN kapcsolo ON eloadas.id=eloadasid INNER JOIN tudos ON tudos.id=tudosid WHERE eloadas.ido= :id");
+        $stmt = $dbh->prepare("SELECT nev, cim, terulet, ido FROM eloadas INNER JOIN kapcsolo ON eloadas.id=eloadasid INNER JOIN tudos ON tudos.id=tudosid WHERE eloadas.id= :id");
         $stmt->execute(Array(":id" => $_POST["id"]));
         if($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-              $eredmeny = array("nev" => $row['nev'], "cim" => $row['cim'], "temakor" => $row['terulet'], "datum" => $row['email']);
+              $eredmeny = array("eloado" => $row['nev'], "eloadas" => $row['cim'], "temakor" => $row['terulet'], "datum" => $row['ido']);
         }
       }
       catch(PDOException $e) {

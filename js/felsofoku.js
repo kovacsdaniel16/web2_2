@@ -55,22 +55,23 @@ function datumok() {
 }
 
 function datum() {
-    $(".adat").html("");
-    var dateid = $("#dateselect").val();
+    $(".adat").html(""); //nullázás
+    var dateid = $("#dateselect").val(); //dataid=dateselect id-jával
     if (dateid != 0) {
         $.post(
             "felsofoku.php",
             {"op" : "info", "id" : dateid},
             function(data) {
-                $("#eloado").text(data.nev);
-                $("#eloadas").text(data.cim);
-                $("#temakor").text(data.tel);
-                $("#datum").text(data.email);
+                $("#ea").text(data.eloado);
+                $("#eas").text(data.eloadas);
+                $("#tk").text(data.temakor);
+                $("#dt").text(data.datum);
+                
             },
             "json"                                                    
         );
     }
-}
+} 
 
 
 $(document).ready(function() { //őket futtatom le, ha minden ki van töltve
@@ -80,9 +81,11 @@ $(document).ready(function() { //őket futtatom le, ha minden ki van töltve
    $("#tudosselect").change(datumok);
    $("#dateselect").change(datum);
    
+   /*
    $(".adat").hover(function() {
         $(this).css({"color" : "white", "background-color" : "black"});
     }, function() {
         $(this).css({"color" : "black", "background-color" : "white"});
     });
+    */
 });

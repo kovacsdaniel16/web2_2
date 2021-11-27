@@ -1,17 +1,18 @@
 #informaciosdiv {
-    width:100%
+    width: 120%;
   }
   #nevinfo {
     float: right;
     border: 1px solid black;
-    width: 50%;
-    height: 100px;
+    width: 600px;
+    height: min-content;
   }
   .cimke{
     display: inline-block;
     width: 60px;
     text-align: right;
   }
+  
   span {
     margin: 3px 5px;
   }
