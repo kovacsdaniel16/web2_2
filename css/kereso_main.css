@@ -1,10 +1,11 @@
 #informaciosdiv {
-    width: 120%;
+    width: 110%;
+    height: 300px;
   }
   #nevinfo {
     float: right;
     border: 1px solid black;
-    width: 600px;
+    width: 500px;
     height: min-content;
   }
   .cimke{
@@ -23,4 +24,9 @@
   }
   select {
     width: 320px;
+  }
+
+  input{
+    margin: 10px;
+    float: right;
   }

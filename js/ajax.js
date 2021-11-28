@@ -1,6 +1,6 @@
 function eloadas() {
     $.post(
-        "felsofoku.php",
+        "./models/ajax.php",
         {"op" : "eloadas"},
         function(data) {
 
@@ -21,7 +21,7 @@ function tudos() { //
     var eloadasid = $("#eloadasselect").val(); //megállapítjuk, h a feljhasználó mely előadót választotta (value) hogy? a val() metódussal
     if (eloadasid != 0) { //ha value nem nulla, akkor indulhat a keresés
         $.post(
-            "felsofoku.php",
+            "./models/ajax.php",
             {"op" : "temakor", "id" : eloadasid}, //elküldünk egy id kulcsot is, mely értéke, az előző kereses id-je (value)
             function(data) {
                 $("#tudosselect").html('<option value="0">Válasszon ...</option>');
@@ -41,7 +41,7 @@ function datumok() {
     var tudosid = $("#tudosselect").val();
     if (tudosid != 0) {
         $.post(
-            "felsofoku.php",
+            "./models/ajax.php",
             {"op" : "datum", "id" : tudosid},
             function(data) {
                 $("#dateselect").html('<option value="0">Válasszon ...</option>');
@@ -59,7 +59,7 @@ function datum() {
     var dateid = $("#dateselect").val(); //dataid=dateselect id-jával
     if (dateid != 0) {
         $.post(
-            "felsofoku.php",
+            "./models/ajax.php",
             {"op" : "info", "id" : dateid},
             function(data) {
                 $("#ea").text(data.eloado);

@@ -5,7 +5,7 @@
         <title>Mindentudás Egyeteme</title>
 
         <script type = "text/javascript" src="<?php echo SITE_ROOT?>js/jquery-2.1.0.min.js"></script>
-        <script type = "text/javascript" src="<?php echo SITE_ROOT?>js/felsofoku.js"></script> <!--itt a JS a vezérlő, azért töltöm be előbb-->
+        <script type = "text/javascript" src="<?php echo SITE_ROOT?>js/ajax.js"></script> <!--itt a JS a vezérlő, azért töltöm be előbb-->
 
 
         <link rel="stylesheet" type="text/css" href="<?php echo SITE_ROOT?>css/main_style.css"><!--alapértelmezett formázás-->

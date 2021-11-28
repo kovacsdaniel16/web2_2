@@ -72,11 +72,17 @@ curl_close($ch);
 ?>
 
 <body>
+    <br>
     <?= $result ?>
-    <h1>Felhasználók:</h1>
+    <h1>Tudósok:</h1>
     <?= $tabla ?>
     <br>
-    <h2>Módosítás / Beszúrás</h2>
+    <?= $result ?>
+    <br>
+    <h2>Módosítás / Beszúrás / Töröl</h2>
+    <h4>1. Rekord hozzáadása: Töltse ki az összes mezőt!</h4>
+    <h4>2. Rekord törlése: Írja be a <u>törlendő</u> sor sorszámát!</h4>
+    <h4>3. Meglévő rekord módosítása: adja meg a módosítandó rekord <u>sorszámát</u> és a módosítandó <u>mezőt</u>! </h4>
     <form method="post">
     Id: <input type="text" name="id"><br><br>
     Kutató neve: <input type="text" name="kn" maxlength="45"> Témaköre: <input type="text" name="tn" maxlength="45"><br><br>
