@@ -62,3 +62,10 @@ li { display:inline }
     width: 70em;
     text-align: justify;
 }
+
+a.main{
+text-decoration: underline;
+background-color: transparent;
+color: navy;
+width: max-content;
+}
